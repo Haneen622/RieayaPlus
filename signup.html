@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - RieayaPlus</title>
+    <!-- Render all elements normally -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Main Template CSS file -->
+    <link rel="stylesheet" href="css/kasper.css">
+    <link rel="stylesheet" href="css/framework.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --rieya-color: #add8e6d1;
+            --pink-color: #EE6F9A;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--rieya-color);
+            color: #333;
+        }
+
+        .containerlogin {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .imglogin {
+            text-align: center;
+            margin-right: 40px;
+        }
+
+        .logoLogin img {
+            width: 150px;
+        }
+
+        .special-gothic-condensed-one-regular {
+            font-family: 'Special Gothic Condensed One', sans-serif;
+            font-size: 24px;
+            color: var(--pink-color);
+            margin-top: 20px;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-box h2 {
+            color: var(--pink-color);
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 35px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            color: var(--pink-color);
+        }
+
+        .myBtn {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--pink-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .myBtn:hover {
+            background-color: #e34b75;
+        }
+
+        .signup-text {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .signup-text a {
+            color: var(--pink-color);
+            text-decoration: none;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="login">
+    <div class="containerlogin">
+        <div class="imglogin">
+            <a href="#" class="logoLogin">
+                <img src="images/loginimg.png" alt="Logo">
+            </a>
+            <p class="special-gothic-condensed-one-regular">Caring for those who cared for us</p>
+        </div>
+
+            <form class="login-box w-40">
+                <h2>Sign Up</h2>
+
+                <div class="input-group">
+                    <i class="fa fa-envelope p-absolute"></i>
+                    <input type="email" placeholder="Your Email" required />
+                </div>
+
+                <div class="input-group">
+                    <i class="fa fa-lock p-absolute"></i>
+                    <input type="password" placeholder="Your Password" required />
+                </div>
+
+                <div class="input-group">
+                    <i class="fa fa-lock p-absolute"></i>
+                    <input type="password" placeholder="Confirm Password" required />
+                </div>
+
+                <button type="submit" class="myBtn">SIGN UP</button>
+
+                <p class="signup-text">Already have an account? <a href="login.html">Log In</a></p>
+            </form>
+    </div>
+
+    <script>
+        // Add JavaScript logic for form submission or redirection here if needed
+    </script>
+</body>
+</html>

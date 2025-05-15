@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RieayaPlus</title>
+    <link rel="icon" type="image/webp" href="images/log.webp">
+
+    <!--Render all elements normally-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css" >
+    <!--Font Awesome Library-->
+    <link rel="stylesheet" href="css/all.min.css" >
+     <!--Main Template css file-->
+     <link rel="stylesheet" href="css/kasper.css" >
+     <link rel="stylesheet" href="css/framework.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+
+    <link href="http://cdn.datatables.net/2.2.1/css/dataTables.dataTables.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="http://cdn.datatables.net/2.2.1/js/dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <style>
+     
+
+
+    </style>
+</head>
+<body>
+    <!-- Start Header -->
+    <header>
+  <div class="container">
+    <a href="#" class="logo">
+      <img src="images/logo.png" alt="Logo">
+    </a> 
+    <nav>
+      <i class="fas fa-bars toggle-menu"></i>
+      <ul class="m-auto">
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#medication">Medication</a></li>
+         <li><a href="#wordsHeart">From Our Seniors</a></li>
+        <li><a href="#appointments">Appointments</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
+        <li><a href="#health">Healthy Life</a></li>
+        <li><a href="#feedbacks">Feedback</a></li> 
+        <li><a href="emergency.html" class="c-red fw-bold">Emergency Page <i class="fas fa-exclamation-triangle ml-10"></i></a></li> <!-- Added link for the Emergency Page -->
+      </ul>
+      <div class="form">
+        <div class="dropdown">
+          <button class="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="avatar-icon">HA</div> 
+          </button>
+          <div class="dropdown-menu dropdown-menu-end p-3 bg-pink" style="min-width: 250px;">
+            <div class="card bg-pink">
+              <div class="card-body">
+                <h6 class="card-title c-white">User Information</h6>
+                <p class="card-text mb-0 c-white"><strong>Email:</strong> HaneenAlajaleen@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav> 
+  </div>
+</header>
+
+    <!-- End Header -->
+    <!-- Start Landing -->
+    <div class="landing">
+       <div class="overlay"></div> 
+      <div class="text">
+        <div class="content">
+         <h2> Welcome to RieayaPlus !<br>
+          Your companion for a safer, healthier, and happier life.</h2>
+         
+       </div>
+      </div>
+
+    </div>
+
+    <!-- End Landing -->
+    <!-- Start Services -->    
+      <div class="medication" id="medication">
+        <div class="container">
+          <div class="main-heading">
+            <h2>Medication Reminder</h2> 
+            <div class="buttons">
+              <button type="button" class="btn  medAddd" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add New Medication
+            </button>
+            <button type="button" class="btn btn-secondary medAdd"><i class="fa-solid fa-qrcode"></i>Add via QR Code</button>
+            </div>
+            
+            <div class="container-fluid py-2">
+              <div class="row py-5">
+                  <div class="col-md-12">
+                      <div id="tableContainer" class="text-center dfas dsaf">
+                           <table id="myTable" class="table table-bordered table-striped med">
+                              <thead>
+                                  <tr>
+                                      <th>Medicine Name</th>
+                                      <th>Dosage</th>
+                                      <th>Medicine Time</th>
+                                      <th>before/after Eating</th>
+                                      <th>Actions</th>
+                                  </tr>
+                              </thead>
+                              <tbody id="tbod">
+                                  <tr>
+                                      <td>Panadol</td>
+                                      <td>500mg </td>
+                                      <td>
+                                        19:36, 12:36
+                                      </td>
+                                      <td>after</td>
+                                      <td>
+                                          <button class="btn btn-danger" id="delRecode">Delete</button>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table> 
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      
+          <!-- Modal -->
+          <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog ">
+                  <div class="modal-content ">
+                      <div class="modal-header">
+                          <h1 class="modal-title fs-5 " id="exampleModalLabel">Medication Reminder</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <div class="col-12  mb-10">
+                              <label for="exampleInputText1" class="form-label d-flex">Medicine Name</label>
+                              <input type="text" class="form-control" id="MedicineName">
+                          </div>
+                          <div class="col-12  mb-10">
+                              <label for="exampleInputText1" class="form-label d-flex">Dosage</label>
+                              <input type="text" class="form-control" id="dosage">
+                          </div>
+                          <div class="col-12  mb-10">
+                            <label for="exampleInputText1" class="form-label d-flex">Before/After Eating </label>
+                            <input type="text" class="form-control" id="baEating">
+                        </div>
+                          
+                           
+                            <div class="col-12 mb-10">
+                              <label for="exampleInputText1" class="form-label d-flex">Medicine Time</label>
+                              
+                              <!-- Container for time fields -->
+                              <div id="time-fields">
+                                <div class="mb-2">
+                                  <input type="time" class="form-control" name="medicinetime[]" id="medtime">
+                                </div>
+                              </div>
+                            
+                              <button class="mt-10" type="button" onclick="addTimeSelect()">Add More Time</button>
+                            </div>
+                            
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" id="saveData">Save changes</button>
+                      </div>
+                  </div>
+              </div>
+          </div>           
+            </div>
+            <div class="medication-container">
+   <div id="alertContainer"></div>
+
+
+            </div>
+          </div>
+        
+    </div>
+    <!-- End Services -->
+  <section class="heart-quotes" id="wordsHeart">
+  <div class="container">
+    <div class="main-heading mb-20">
+      <h2> from our seniors</h2> 
+    </div>
+
+    <div class="quote-box mt-10">
+      <p class="quote">"This app has truly made my days easier. I feel more at ease knowing I won’t forget my medicine."</p>
+      <p class="author">– Samira Al-Fayez, 68 years old</p>
+    </div>
+
+    <div class="quote-box">
+      <p class="quote">"I never thought something so simple could bring so much comfort. It really makes me feel cared for."</p>
+      <p class="author">– Ahmed Al-Khalil, 72 years old</p>
+    </div>
+
+    <div class="quote-box">
+      <p class="quote">"I used to worry about missing doctor visits, but now I feel supported and in control."</p>
+      <p class="author">– Mariam Al-Jamil, 80 years old</p>
+    </div>
+
+    <div class="quote-box">
+      <p class="quote">"The gentle reminders and activities give me a sense of routine and joy. It feels like someone’s always looking out for me."</p>
+      <p class="author">– Youssef Al-Mansour, 77 years old</p>
+    </div>
+  </div>
+</section>
+
+   
+     <!-- Start Appointments -->
+      <div class="appointments" id="appointments">
+        <div class="container">
+          <div class="main-heading">
+            <h2>Appointments Reminder</h2> 
+          </div>
+
+          <div class="buttons between-flex">
+            <button type="button" class="btn medAddd" data-bs-toggle="modal" data-bs-target="#model2">
+              Add New Appointment
+          </button>
+          <button type="button" class="btn btn-secondary medAdd"><i class="fa-solid fa-qrcode"></i>Add via QR Code</button>
+          </div>
+          
+            <div class="services-container mt-40" id="cardBod">
+            <div class="srv-box col-3">
+              <div class="card rad-10" style="width: 18rem;" >
+                <img class="card-img-top w-100" src="images/3634680.png" alt="Card image cap">
+                <div class="card-body">
+                        <ul>
+                            <li><h1>Heart Surgery</h1></li>
+                            <li><h5>Alamal Hospital</h5></li>
+                            <li>
+                             <h6>2/3/2022</h6> 
+                            </li>
+                            <li><h6>19.30</h6></li>
+                            <li>
+                                <button class="btn btn-danger" id="delRecode">Delete</button>
+                            </li>
+                </div>
+
+              </div>
+
+            </div>
+
+            
+          </div>
+
+          <div class="modal fade" id="model2" tabindex="-1" aria-labelledby="model2Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="model2Label">Appointment Reminder</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-12 mb-10">
+                            <label for="medicineName" class="form-label d-flex">Appointment Name</label>
+                            <input type="text" class="form-control" id="appointmentName">
+                        </div>
+                        <div class="col-12 mb-10">
+                            <label for="mealTiming" class="form-label d-flex">Appointment Address</label>
+                            <input type="text" class="form-control" id="appointmentaddress">
+                        </div>
+                        <div class="col-12 mb-10">
+                          <label for="mealTiming" class="form-label d-flex">Appointment Date</label>
+                          <input type="date" class="form-control" id="appointmentdate">
+                      </div>
+                      <div class="col-12 mb-10">
+                        <label for="mealTiming" class="form-label d-flex">Appointment Time</label>
+                        <input type="time" class="form-control" id="appointmenttime">
+                    </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="saveAppData">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+     <!-- End Appointments -->
+
+    <!-- Start Video -->
+    <div class="video">
+      <video autoplay muted loop> 
+        <source src="images/eld.mp4" type="video/mp4">
+      </video>
+      <div class="text">
+        <h2>Stay Active and Healthy</h2>
+        <p>A heartwarming moment of learning and care through technology. </p>
+      </div>
+    </div>
+    <!-- End Video -->
+            <!-- Start Entertainment -->
+    <div class="entertainment bg-r" id="entertainment">
+      <div class="container">
+        <div class="main-heading">
+          <h2>Entertainment</h2>
+          <p>Enjoy joyful moments with games, music, and uplifting activities!</p>
+          </div>
+          <ul class="shuffle">
+            <li class="active">All</li>
+            <li><a href="music.html" class="underline-none c-black">Music</a></li>
+            <li><a href="games.html" class="underline-none c-black">Games</a></li>
+            <li><a href="theatre.html" class="underline-none c-black">Drama &Theatre</a></li>
+            <li><a href="books.html" class="underline-none c-black">Books & Articles</a></li>
+          </ul>
+      </div>
+      <div class="imgs-container">
+        <div class="box">
+          <img src="images/musicc.jpg" alt="">
+          <div class="caption">
+            <h4><a href="music.html" class="underline-none">Music</a></h4>
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/gamesjpg" alt="">
+          <div class="caption">
+            <h4><a href="games.html" class="underline-none">Games</a></h4>
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/Theatre.jpg" alt="">
+          <div class="caption">
+            <h4><a href="theatre.html" class="underline-none">Drama &Theatre</a></h4>
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/books.jpg" alt="">
+          <div class="caption">
+            <h4><a href="books.html" class="underline-none">Books & Articles</a></h4>
+          </div>
+        </div>
+       
+      </div>
+      <!-- <a href="#" class="more">More</a> -->
+    </div>
+    <!-- End entertainment -->
+    <!-- Start About Section -->
+    <div class="health-section" id="health">
+      <div class="container">
+        <div class="main-heading">
+          <h2>HEALTHY LIFE</h2>
+        <p><p style="font-size: 16px; color: #444;">
+  Taking care of your health doesn't have to be hard. Here you'll find simple daily tips and gentle exercises to help you feel better, move easier, and stay strong. Remember — a little bit every day goes a long way! 💪💖
+        </p>
+        </p>
+        </div>
+        <div class="section" onclick="toggleSection(this)">
+          <div class="headtog between-flex mb-20 ">
+            <h2>🧘 Health & Exercise Tips</h2>
+        <i class="fas fa-chevron-down chevron-icon pointer"></i> 
+          </div>
+        
+        <div class="content">
+          <div class="tip">
+  <button class="tip-btn" onclick="toggleTip(event, this)"> ➕ Stay Hydrated</button>
+  <div class="tip-content">Drink 6–8 glasses of water daily to stay energized and healthy.</div>
+</div>
+
+<div class="tip">
+  <button class="tip-btn" onclick="toggleTip(event, this)">➕ Gentle Stretching</button>
+  <div class="tip-content">Do this <a href="https://youtu.be/ZvfDryEt5bw?si=wbuAkW8-tVpQXnH5" target="_blank" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover underline-none">easy stretch video</a> every morning to feel relaxed.</div>
+</div>
+
+<div class="tip">
+  <button class="tip-btn" onclick="toggleTip(event, this)">➕ Daily Walk</button>
+  <div class="tip-content">A 15-minute walk boosts your heart and mood!</div>
+</div>
+
+<div class="tip">
+  <button class="tip-btn" onclick="toggleTip(event, this)">➕ Chair Yoga</button>
+  <div class="tip-content">
+    Watch this <a href="https://youtu.be/U_jdXFfegKE?si=_eIDUgrQ7YdvPnyV" target="_blank" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover underline-none">chair yoga video</a> for mobility and strength.
+  </div>
+</div>
+
+<div class="tip">
+  <button class="tip-btn" onclick="toggleTip(event, this)">➕ Breathing Exercises</button>
+  <div class="tip-content">Deep breathing can reduce stress and improve focus. Try it for 5 minutes daily.</div>
+</div>
+
+<div class="tip">
+  <button class="tip-btn" onclick="toggleTip(event, this)">➕ Daily workout</button>
+  <div class="tip-content">
+    Watch this <a href="https://youtu.be/PNs0KSWWkqY?si=CmVmK83xyplvN2Dn" target="_blank" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover underline-none">Daily workout video</a> to build strength at home.
+  </div>
+</div>
+
+<div class="tip">
+  <button class="tip-btn" onclick="toggleTip(event, this)">
+    ➕ Get Good Sleep
+  </button>
+  <div class="tip-content">
+    Sleeping 7 to 8 hours at night helps your body rest and recover. Try to go to bed at the same time every night.
+  </div>
+</div>
+
+<div class="tip">
+  <button class="tip-btn" onclick="toggleTip(event, this)">
+    ➕ Eat Balanced Meals
+  </button>
+  <div class="tip-content">
+    Include vegetables, fruits, whole grains, and protein in your meals. Good nutrition helps keep you strong and active.
+  </div>
+</div>
+
+<div class="tip">
+  <button class="tip-btn" onclick="toggleTip(event, this)">
+    ➕ Stay Connected
+  </button>
+  <div class="tip-content">
+    Talking to family or friends can lift your mood and reduce loneliness. Even a short call can make a big difference.
+  </div>
+</div>
+
+  </div>
+</div>
+<div class="mt-40 text-center hlthQoute">
+  <p style="font-style: italic; color: #555;" >You’re doing great! Every small step matters. Keep moving and smiling — your health loves it! 😊</p>
+</div>
+</div>
+  </div>
+   
+    <!-- Start Contact US -->
+    <div class="feedbacks" id="feedbacks">
+      <div class="container">
+        <div class="main-heading">
+          <h2>feedback</h2>
+          <p>We'd love to hear your feedback improvments & challenges ! Your feedback helps us make this site even better for you.</p>
+        </div>
+        <div class="content">
+          <form action="">
+            <input class="main-input" type="text" name="name"placeholder="Your Name">
+            <input class="main-input" type="email" name="mail"placeholder="Your Email">
+            <textarea  class="main-input" name="Your Message"  placeholder="Your feedback"></textarea>
+            <input type="submit" value="Send Message">
+          </form>
+          <div class="info">
+            <h4>Get In Touch</h4>
+            <span class="phone">+00 123.456.789</span>
+            <span class="phone">+00 123.456.789</span>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Contact US -->
+    <!-- Start Footer -->
+    <div class="footer">
+      <div class="container">
+        <img src="images/logo.png" alt="logo">
+        <p>We Are Social</p>
+        <div class="social-icons">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fa-solid fa-house"></i>
+          <i class="fab fa-linkedin"></i>
+        </div>
+        <p class="copyright">&copy; 2025 <span>RieayaPlus</span> All Rigth Reserved</p>
+      </div>
+    </div>
+    <!-- End Footer -->
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    
+<script>
+    $(document).ready(function () {
+        $("#saveData").click(function () {
+            var MedicineName = $("#MedicineName").val();
+            var dosage = $("#dosage").val();
+            var baEating = $("#baEating").val();
+            var medtime = $("#medtime").val();
+
+            const timeInputs = document.querySelectorAll('input[name="medicinetime[]"]');
+            medtime = Array.from(timeInputs)
+                .map(input => input.value)
+                .filter(value => value !== '')
+                .join(', '); // Or use '<br>' for line breaks
+
+            // Clear any existing alerts
+            $(".alert").remove();
+
+            if (MedicineName && dosage && baEating && medtime) {
+                var row = `<tr>
+                                <td>${MedicineName}</td>
+                                <td>${dosage}</td>
+                                <td>${medtime}</td>
+                                <td>${baEating}</td>
+                                <td>
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>`;
+                $("#tbod").append(row);
+                $("#MedicineName").val('');
+                $("#dosage").val('');
+                $("#medicineTime").val('');
+                $("#baEating").val('');
+                $('#exampleModal').modal('hide');
+            } else {
+                // Show Bootstrap alert if fields are empty
+                
+               
+            }
+            var alertMessage = `<div class="alert alert-danger mt-3" role="alert">
+                                      Medicine added Sucessfully!
+                                    </div>`;
+             $("#alertContainer").append(alertMessage);
+        });
+    });
+
+    $(document).on("click", ".btn-danger", function () {
+        $(this).closest("tr").remove();
+    });
+</script>
+
+<!-- Add this container for the alert message -->
+
+<script>
+  
+  function addTimeSelect() {
+  const original = document.querySelector('#time-fields div');
+  const clone = original.cloneNode(true);
+
+  // Clear the time input value in the clone
+  clone.querySelector('input[type="time"]').value = '';
+
+  // Append the cloned input to the time-fields container
+  document.getElementById('time-fields').appendChild(clone);
+}
+
+</script>
+
+<script>
+   $(document).ready(function () {
+            $("#saveAppData").click(function () {
+                var appointmentName = $("#appointmentName").val();
+                var appointmentaddress=$("#appointmentaddress").val();
+                var appointmentdate=$("#appointmentdate").val();
+                var appointmenttime = $("#appointmenttime").val();
+
+
+if (appointmentName && appointmentaddress && appointmentdate && appointmenttime) {
+    
+  var row =` <div class="srv-box col-3">
+              <div class="card rad-10" style="width: 18rem;" >
+                <img class="card-img-top w-100" src="images/3634680.png" alt="Card image cap">
+                <div class="card-body">
+                        <ul>
+                            <li><h1>${appointmentName}</h1></li>
+                            <li><h5>${appointmentaddress}</h5></li>
+                            <li>
+                             <h6>${appointmentdate}</h6> 
+                            </li>
+                            <li><h6>${appointmenttime}</h6></li>
+                            <li>
+                                <button class="btn btn-danger" id="delRecode">Delete</button>
+                            </li>
+                </div>
+              </div>
+            </div>`
+    $("#cardBod").append(row);
+                    $("#appointmentName").val('');
+                    $("#appointmentaddress").val('');
+                    $("#appointmentdate").val('');
+                    $("#appointmenttime").val('');
+                    $('#exampleModal').modal('hide');
+                } 
+                else {
+                    alert("Please fill in all fields.");
+                }
+                // alertAppContainer
+                  var alertMessagee = `<div class="alert alert-danger mt-3" role="alert">
+                                      Medicine added Sucessfully!
+                                    </div>`;
+             $("#alertAppContainer").append(alertMessagee);
+            });
+        });
+        $(document).on("click", ".btn-danger", function () {
+            $(this).closest(".srv-box").remove();
+        });
+        function toggleSection(section) {
+  section.classList.toggle("open");
+}
+function toggleTip(event, btn) {
+  event.stopPropagation(); 
+
+  const content = btn.nextElementSibling;
+  if (content.style.display === "block") {
+    content.style.display = "none";
+    btn.textContent = btn.textContent.replace("➖", "➕");
+  } else {
+    content.style.display = "block";
+    btn.textContent = btn.textContent.replace("➕", "➖");
+  }
+}
+
+
+</script>
+</body>
+</html>
+
