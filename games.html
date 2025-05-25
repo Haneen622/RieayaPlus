@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Entertainment - Games</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px;
+      background-color: #add8e6d1;
+    }
+
+    h1 {
+      font-size: 40px;
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .game-card {
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin: 30px auto;
+      padding: 30px;
+      max-width: 600px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .play-button {
+      padding: 12px 30px;
+      font-size: 16px;
+      background-color: #ee6f9a;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .play-button:hover {
+      background-color: #e25789;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    p {
+      font-size: 17px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎮 Fun & Games</h1>
+
+  <div class="game-card">
+    <h2>🧠 Memory Match</h2>
+    <p>Flip cards to find matching pairs. Good for memory training!</p>
+    <button class="play-button" onclick="window.open('https://www.memozor.com/memory-games/for-adults', '_blank')">Play</button>
+  </div>
+
+  <div class="game-card">
+    <h2>🔤 Word Search</h2>
+    <p>Find hidden words in the grid. Great for focus and vocabulary.</p>
+    <button class="play-button" onclick="window.open('https://www.thewordsearch.com/', '_blank')">Play</button>
+  </div>
+
+  <div class="game-card">
+    <h2>🔢 Sudoku</h2>
+    <p>Classic number logic game. Choose your difficulty level.</p>
+    <button class="play-button" onclick="window.open('https://sudoku.com/', '_blank')">Play</button>
+  </div>
+
+  <div class="game-card">
+    <h2>🧩 Puzzle Game</h2>
+    <p>Drag and fit pieces together to complete beautiful images.</p>
+    <button class="play-button" onclick="window.open('https://www.jigsawexplorer.com/', '_blank')">Play</button>
+  </div>
+
+</body>
+</html>
