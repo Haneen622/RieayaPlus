@@ -7,12 +7,13 @@
     <link rel="icon" type="image/webp" href="images/log.webp">
 
     <!--Render all elements normally-->
+         <link rel="stylesheet" href="css/kasper.css" >
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/normalize.css" >
     <!--Font Awesome Library-->
     <link rel="stylesheet" href="css/all.min.css" >
      <!--Main Template css file-->
-     <link rel="stylesheet" href="css/kasper.css" >
      <link rel="stylesheet" href="css/framework.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,10 +31,11 @@
 
     </style>
 </head>
-<body>
+<body class=" bg-light text-dark">
     <!-- Start Header -->
     <header>
   <div class="container">
+
     <a href="#" class="logo">
       <img src="images/logo.png" alt="Logo">
     </a> 
@@ -47,7 +49,7 @@
         <li><a href="#entertainment">Entertainment</a></li>
         <li><a href="#health">Healthy Life</a></li>
         <li><a href="#feedbacks">Feedback</a></li> 
-        <li><a href="emergency.html" class="c-red fw-bold">Emergency Page <i class="fas fa-exclamation-triangle ml-10"></i></a></li> <!-- Added link for the Emergency Page -->
+        <li><a href="emergency.html" class="c-red fw-bold">Emergency Page <i class="fas fa-exclamation-triangle ml-10"></i></a></li> 
       </ul>
       <div class="form">
         <div class="dropdown">
@@ -59,6 +61,7 @@
               <div class="card-body">
                 <h6 class="card-title c-white">User Information</h6>
                 <p class="card-text mb-0 c-white"><strong>Email:</strong> HaneenAlajaleen@example.com</p>
+                <br><br><p><button class="btn btn-danger" onclick="logout()">Log out</button></p>
               </div>
             </div>
           </div>
@@ -76,7 +79,7 @@
         <div class="content">
          <h2> Welcome to RieayaPlus !<br>
           Your companion for a safer, healthier, and happier life.</h2>
-         
+          <button id="darkModeToggle" class="btn btn-outline-secondary">🌙 Dark Mode</button>
        </div>
       </div>
 
@@ -92,7 +95,13 @@
               <button type="button" class="btn  medAddd" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Add New Medication
             </button>
-            <button type="button" class="btn btn-secondary medAdd"><i class="fa-solid fa-qrcode"></i>Add via QR Code</button>
+            <!-- <button type="button" class="btn btn-secondary medAdd"><i class="fa-solid fa-qrcode"></i>Add via QR Code</button> -->
+             <button type="button" class="btn btn-secondary medAdd" onclick="openImageOptions()">
+  <i class="fa-solid fa-qrcode"></i> Add via QR Code
+</button>
+
+<!-- Hidden input for uploading or capturing photo -->
+<input type="file" id="qrInput" accept="image/*" style="display:none" capture="environment" onchange="handleImage(this)">
             </div>
             
             <div class="container-fluid py-2">
@@ -220,11 +229,10 @@
             <h2>Appointments Reminder</h2> 
           </div>
 
-          <div class="buttons between-flex">
+          <div class="buttons text-center">
             <button type="button" class="btn medAddd" data-bs-toggle="modal" data-bs-target="#model2">
               Add New Appointment
           </button>
-          <button type="button" class="btn btn-secondary medAdd"><i class="fa-solid fa-qrcode"></i>Add via QR Code</button>
           </div>
           
             <div class="services-container mt-40" id="cardBod">
@@ -310,7 +318,7 @@
             <li class="active">All</li>
             <li><a href="music.html" class="underline-none c-black">Music</a></li>
             <li><a href="games.html" class="underline-none c-black">Games</a></li>
-            <li><a href="theatre.html" class="underline-none c-black">Drama &Theatre</a></li>
+            <li><a href="theater-drama.html" class="underline-none c-black">Drama &Theatre</a></li>
             <li><a href="books.html" class="underline-none c-black">Books & Articles</a></li>
           </ul>
       </div>
@@ -330,7 +338,7 @@
         <div class="box">
           <img src="images/Theatre.jpg" alt="">
           <div class="caption">
-            <h4><a href="theatre.html" class="underline-none">Drama &Theatre</a></h4>
+            <h4><a href="theater-drama.html" class="underline-none">Drama &Theatre</a></h4>
           </div>
         </div>
         <div class="box">
@@ -341,10 +349,8 @@
         </div>
        
       </div>
-      <!-- <a href="#" class="more">More</a> -->
     </div>
     <!-- End entertainment -->
-    <!-- Start About Section -->
     <div class="health-section" id="health">
       <div class="container">
         <div class="main-heading">
@@ -429,8 +435,13 @@
 </div>
 </div>
   </div>
-   
-    <!-- Start Contact US -->
+   <section class="qoute">
+  <div class="container">
+    <q>"To keep the heart unwrinkled, to be hopeful, kindly, cheerful, reverent—that is to triumph over old age."</q>
+    <p>Thomas Bailey Aldrich</p>
+  </div>
+</section>
+
     <div class="feedbacks" id="feedbacks">
       <div class="container">
         <div class="main-heading">
@@ -525,7 +536,6 @@
     });
 </script>
 
-<!-- Add this container for the alert message -->
 
 <script>
   
@@ -580,7 +590,7 @@ if (appointmentName && appointmentaddress && appointmentdate && appointmenttime)
                 else {
                     alert("Please fill in all fields.");
                 }
-                // alertAppContainer
+                
                   var alertMessagee = `<div class="alert alert-danger mt-3" role="alert">
                                       Medicine added Sucessfully!
                                     </div>`;
@@ -607,6 +617,59 @@ function toggleTip(event, btn) {
 }
 
 
+</script>
+  <script>
+    function readPage() {
+      const text = document.body.innerText; // Get all visible text
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.cancel(); // Stop any current speech
+      speechSynthesis.speak(utterance); // Speak it
+    }
+  </script>
+  <script>
+  const toggleButton = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  toggleButton.addEventListener('click', () => {
+    body.classList.toggle('bg-light');
+    body.classList.toggle('text-dark');
+    body.classList.toggle('bg-dark');
+    body.classList.toggle('text-light');
+
+    // Optional: change button text/icon
+    if (body.classList.contains('bg-dark')) {
+      toggleButton.textContent = '☀️ Light Mode';
+      toggleButton.classList.remove('btn-outline-secondary');
+      toggleButton.classList.add('btn-outline-light');
+    } else {
+      toggleButton.textContent = '🌙 Dark Mode';
+      toggleButton.classList.remove('btn-outline-light');
+      toggleButton.classList.add('btn-outline-secondary');
+    }
+  });
+  function logout() {
+     window.location.href = "login.html";
+    }
+</script>
+<script>
+  function openImageOptions() {
+    // Trigger the hidden input
+    document.getElementById('qrInput').click();
+  }
+
+  function handleImage(input) {
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+
+      // You can now use this image file for your QR code scanner or preview
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        console.log("Image uploaded or captured:", e.target.result);
+        // You can process it here or show it in an <img> tag
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 </script>
 </body>
 </html>
